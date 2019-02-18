@@ -2,9 +2,11 @@
 
 This is a LaunchBar action that formats code snippets using [Prettier](https://prettier.io).
 
+![](./demo.gif)
+
 ## Motivation
 
-From time to time I find myself needing to past arbitrary snippets of code (JSON usually) into Slack and want it to be nicely formatted before I do. My usual workflow for this is to paste it in a new VSCode doc, set the language mode, run the formatter, copy the formatted selection, and then paste it into Slack.
+From time to time I find myself needing to paste arbitrary snippets of code (JSON usually) into Slack and want it to be nicely formatted before I share it. My usual workflow for this is to: paste it in a new VSCode doc, set the doc's language mode, run the formatter, copy the formatted selection, and then paste it into Slack.
 
 Now I can copy the poorly formatted text, run it through this action, and paste it right back where I copied it from.
 
