@@ -1,30 +1,46 @@
 import prettier from 'prettier/standalone';
-import plugins from 'prettier/parser-babylon';
+import jsParsers from 'prettier/parser-babylon';
+import cssParsers from 'prettier/parser-postcss';
+import htmlParsers from 'prettier/parser-html';
 
-let input;
+// Language name, parser to use, icon prefix
+const languageTypes = [
+  ['JSON', 'json', 'json'],
+  ['JavaScript', 'babel', 'js'],
+  ['CSS', 'css', 'css'],
+  ['Sass', 'scss', 'scss'],
+  ['HTML', 'html', 'html'],
+];
 
+// This is the function that does all the work
+// The settings object has the input to format and the parser (language type) to
+// format the input as
 export function format(settings) {
-  // return parser;
-  return prettier.format(settings.input, {
-    singleQuote: true,
+  let prettierrc = {};
+  try {
+    prettierrc = File.readJSON('~/.prettierrc');
+  } catch (error) {}
+  const formatted = prettier.format(settings.input, {
+    ...prettierrc,
     parser: settings.parser,
-    plugins: [plugins],
+    plugins: [jsParsers, cssParsers, htmlParsers],
   });
+  // If SHIFT is held down when running the action, paste the formatted code
+  // into the active app
+  if (LaunchBar.options.shiftKey) {
+    LaunchBar.paste(formatted);
+  } else {
+    return formatted;
+  }
 }
 
 function promptForLanguageType(input) {
-  return [
-    {
-      title: 'JavaScript',
-      action: 'format',
-      actionArgument: {input, parser: 'babel'},
-    },
-    {
-      title: 'JSON',
-      action: 'format',
-      actionArgument: {input, parser: 'json'},
-    },
-  ];
+  return languageTypes.map(([title, parser, icon]) => ({
+    title,
+    action: 'format',
+    actionArgument: { input, parser },
+    icon: `${icon}-icon-Template`,
+  }));
 }
 
 export function run(argument) {
@@ -32,7 +48,7 @@ export function run(argument) {
     // Inform the user that there was no argument
     LaunchBar.alert('No argument was passed to the action');
   } else {
-    // Return a single item that describes the argument
+    // Ask the user which language the snippet is in
     return promptForLanguageType(argument);
   }
 }

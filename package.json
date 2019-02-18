@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "webpack",
-    "exposeRunFunction": "./exposeRunFunction.sh",
-    "build": "npm run compile && npm run exposeRunFunction"
+    "exposeFunctions": "./exposeFunctions.sh",
+    "build": "npm run compile && npm run exposeFunctions"
   },
   "keywords": [],
   "author": "",
