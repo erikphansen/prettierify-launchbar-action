@@ -5,20 +5,32 @@
 	<key>CFBundleIconFile</key>
 	<string>prettier-icon-Template.png</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.yourcompany.LaunchBar.action.Prettierify</string>
+	<string>com.erikphansen.LaunchBar.action.Prettierify</string>
 	<key>CFBundleName</key>
 	<string>Prettierify</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBArgument</key>
+	<string>Code that you want to format</string>
 	<key>LBDescription</key>
 	<dict>
+		<key>LBArgument</key>
+		<string>Code that you want to format</string>
 		<key>LBAuthor</key>
-		<string></string>
+		<string>Erik P. Hansen</string>
 		<key>LBEmail</key>
-		<string></string>
+		<string>eph@erikphansen.com</string>
+		<key>LBResult</key>
+		<string>Formatted code</string>
+		<key>LBSummary</key>
+		<string>Formats code with Prettier</string>
 		<key>LBTwitter</key>
-		<string></string>
+		<string>eirkeirkeirk</string>
 		<key>LBWebsiteURL</key>
-		<string></string>
+		<string>blog.erikphansen.com</string>
 	</dict>
+	<key>LBResult</key>
+	<string>Formatted code</string>
 	<key>LBScripts</key>
 	<dict>
 		<key>LBDefaultScript</key>
