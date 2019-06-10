@@ -36,7 +36,7 @@ export function format(options) {
     plugins: [jsParsers, cssParsers, htmlParsers],
   });
   // If SHIFT is held down when running the action, paste the formatted code
-  // into the active app
+  // into the focused window
   if (LaunchBar.options.shiftKey) {
     LaunchBar.paste(formatted);
   } else {
@@ -50,14 +50,17 @@ export function format(options) {
  *
  * @param {string} input - The text to format
  * @returns {Object[]} - An array of objects for LaunchBar to display to the
- * user
+ * user. The possible values for these objects are described in the LB6
+ * developer docs:
+ * https://developer.obdev.at/launchbar-developer-documentation/#/script-output
  */
 function promptForLanguageType(input) {
-  return languageTypes.map(([title, parser, icon]) => ({
+  return languageTypes.map(([title, parser, icon], index) => ({
     title,
     action: 'format',
     actionArgument: { input, parser },
     icon,
+    badge: `${index + 1}`,
   }));
 }
 
@@ -71,7 +74,10 @@ function promptForLanguageType(input) {
 export function run(argument) {
   if (argument == undefined) {
     // Inform the user that there was no argument
-    LaunchBar.alert('No argument was passed to the action');
+    LaunchBar.alert(
+      'No argument was passed to the action',
+      'Please provide some code for this action to format with Prettier',
+    );
   } else {
     // Ask the user which language the snippet is in
     return promptForLanguageType(argument);

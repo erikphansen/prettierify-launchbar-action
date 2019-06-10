@@ -5,9 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "webpack",
-    "exposeFunctions": "./exposeFunctions.sh",
-    "build": "npm run compile && npm run exposeFunctions"
+    "build": "webpack && ./exposeFunctions.sh"
   },
   "keywords": [],
   "author": "",
