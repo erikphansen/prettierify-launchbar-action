@@ -160,8 +160,6 @@ function run(arg) {
   return prettierify.run(arg);
 }
 
-// hellllooo!
-
 function format(parser) {
   return prettierify.format(parser);
 }

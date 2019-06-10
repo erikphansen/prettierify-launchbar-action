@@ -1,4 +1,5 @@
 const path = require('path');
+const exec = require('child_process').exec;
 
 module.exports = {
   entry: './Contents/Scripts/index.js',
@@ -16,6 +17,18 @@ module.exports = {
       },
     ],
   },
+  plugins: [
+    {
+      apply: compiler => {
+        compiler.hooks.afterEmit.tap('AfterEmitPlugin', compilation => {
+          exec('./exposeFunctions.sh', (err, stdout, stderr) => {
+            if (stdout) process.stdout.write(stdout);
+            if (stderr) process.stderr.write(stderr);
+          });
+        });
+      },
+    },
+  ],
   optimization: {
     minimize: false,
   },
