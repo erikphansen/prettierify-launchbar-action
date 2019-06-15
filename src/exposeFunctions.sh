@@ -8,4 +8,4 @@ function run(arg) {
 
 function format(parser) {
   return prettierify.format(parser);
-}" >> ./Contents/Scripts/main.js
+}" >> ./build/Prettierify.lbaction/Contents/Scripts/main.js
