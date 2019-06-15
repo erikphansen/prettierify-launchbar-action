@@ -2,7 +2,7 @@
 
 This is a LaunchBar action that formats code snippets using [Prettier](https://prettier.io).
 
-![](./demo.gif)
+![](./docs/demo.gif)
 
 ## Motivation
 
@@ -23,12 +23,9 @@ Now I can copy the poorly formatted text, run it through this action, and paste 
 
 ## Installation
 
-Clone this repo into your LaunchBar actions directory and give it a `.lbaction` extension. For example:
+Simply clone this repo into your LaunchBar actions directory (`~/Library/Application Support/LaunchBar/Actions`). Even though the actual `Prettierify.lbaction` won't live at the top level of the LaunchBar actions directory, LaunchBar is smart enough to search all subdirectories for `.lbaction` extensions.
 
-```sh
-cd ~/Library/Application\ Support/LaunchBar/Actions
-git clone git@github.com:erikphansen/launchbar-prettierify.git prettierify.lbaction
-```
+Alternatively, if you just want to _use_ this action and not make any changes to it, you can <a href="./build/Prettierify.lbaction" download>download just the `Prettierify.lbaction` file</a> and move it to your LaunchBar actions directory.
 
 ## Development
 
