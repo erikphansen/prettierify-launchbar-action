@@ -1,10 +1,13 @@
-const path = require('path');
-const exec = require('child_process').exec;
+const path = require('path')
+const exec = require('child_process').exec
 
 module.exports = {
   entry: './src/json.js',
   output: {
-    path: path.resolve(__dirname, './build/Prettierify-JSON.lbaction/Contents/Scripts/'),
+    path: path.resolve(
+      __dirname,
+      './build/Prettierify-JSON.lbaction/Contents/Scripts/',
+    ),
     filename: 'main.js',
     libraryTarget: 'var',
     library: 'prettierify',
@@ -19,13 +22,13 @@ module.exports = {
   },
   plugins: [
     {
-      apply: compiler => {
-        compiler.hooks.afterEmit.tap('AfterEmitPlugin', compilation => {
+      apply: (compiler) => {
+        compiler.hooks.afterEmit.tap('AfterEmitPlugin', () => {
           exec('./src/exposeFunctionsJSON.sh', (err, stdout, stderr) => {
-            if (stdout) process.stdout.write(stdout);
-            if (stderr) process.stderr.write(stderr);
-          });
-        });
+            if (stdout) process.stdout.write(stdout)
+            if (stderr) process.stderr.write(stderr)
+          })
+        })
       },
     },
   ],
@@ -33,4 +36,4 @@ module.exports = {
     minimize: false,
   },
   mode: 'development',
-};
+}
