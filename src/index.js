@@ -3,14 +3,13 @@ import jsParsers from 'prettier/parser-babylon';
 import cssParsers from 'prettier/parser-postcss';
 import htmlParsers from 'prettier/parser-html';
 
-// Language name, parser to use, icon file name. Stored as tuples instead of
-// objects for simplicity's sake.
-const languageTypes = [
-  ['JSON', 'json', 'json-icon-Template'],
-  ['JavaScript', 'babel', 'js-icon-Template'],
-  ['CSS', 'css', 'css-icon-Template'],
-  ['Sass', 'scss', 'scss-icon-Template'],
-  ['HTML', 'html', 'html-icon-Template'],
+// Language name, parser to use, icon file name.
+const supportedLanguages = [
+  { title: 'JSON', parser: 'json', icon: 'json-icon-Template' },
+  { title: 'JavaScript', parser: 'babel', icon: 'js-icon-Template' },
+  { title: 'CSS', parser: 'css', icon: 'css-icon-Template' },
+  { title: 'Sass', parser: 'scss', icon: 'scss-icon-Template' },
+  { title: 'HTML', parser: 'html', icon: 'html-icon-Template' },
 ];
 
 /**
@@ -55,7 +54,7 @@ export function format(options) {
  * https://developer.obdev.at/launchbar-developer-documentation/#/script-output
  */
 function promptForLanguageType(input) {
-  return languageTypes.map(([title, parser, icon], index) => ({
+  return supportedLanguages.map(({title, parser, icon}, index) => ({
     title,
     action: 'format',
     actionArgument: { input, parser },
