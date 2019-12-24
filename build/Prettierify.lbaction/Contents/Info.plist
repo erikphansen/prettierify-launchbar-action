@@ -9,7 +9,7 @@
 	<key>CFBundleName</key>
 	<string>Prettierify</string>
 	<key>CFBundleVersion</key>
-	<string>1.0</string>
+	<string>1.0.1</string>
 	<key>LBArgument</key>
 	<string>Code that you want to format</string>
 	<key>LBDescription</key>
