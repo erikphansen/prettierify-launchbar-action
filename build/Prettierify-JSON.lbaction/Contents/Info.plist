@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIconFile</key>
+	<string>json-icon-Template.png</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.erikphansen.LaunchBar.action.PrettierifyJSON</string>
+	<key>CFBundleName</key>
+	<string>Prettierify JSON</string>
+	<key>CFBundleVersion</key>
+	<string>1.0</string>
+	<key>LBArgument</key>
+	<string>Code that you want to format</string>
+	<key>LBDescription</key>
+	<dict>
+		<key>LBArgument</key>
+		<string>JSON that you want to format</string>
+		<key>LBAuthor</key>
+		<string>Erik P. Hansen</string>
+		<key>LBEmail</key>
+		<string>eph@erikphansen.com</string>
+		<key>LBResult</key>
+		<string>Formatted JSON</string>
+		<key>LBSummary</key>
+		<string>Formats JSON with Prettier</string>
+		<key>LBTwitter</key>
+		<string>eirkeirkeirk</string>
+		<key>LBWebsiteURL</key>
+		<string>blog.erikphansen.com</string>
+	</dict>
+	<key>LBResult</key>
+	<string>Formatted code</string>
+	<key>LBScripts</key>
+	<dict>
+		<key>LBDefaultScript</key>
+		<dict>
+			<key>LBAcceptedArgumentTypes</key>
+			<array>
+				<string>string</string>
+			</array>
+			<key>LBKeepWindowActive</key>
+			<true/>
+			<key>LBRequiresArgument</key>
+			<true/>
+			<key>LBResultType</key>
+			<string>unknown</string>
+			<key>LBReturnsResult</key>
+			<true/>
+			<key>LBScriptName</key>
+			<string>main.js</string>
+		</dict>
+	</dict>
+</dict>
+</plist>
